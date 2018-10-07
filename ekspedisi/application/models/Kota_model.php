@@ -3,13 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kota_model extends CI_Model {
 
+	var $API = "";
+	public function __construct()
+	{
+		parent::__construct();
+		$this->API="http://localhost/ekspedisi-enterprise/rest_server/index.php";
+	}
 	public function get()
 	{
-		return $this->db->get('kota')->result();
+		return json_decode($this->curl->simple_get($this->API.'/Kota'));
 	}
 	public function get_id($id)
 	{
-		return $this->db->where('id',$id)->get('kota')->row(0);
+		$param = array(
+			'id' => $id,
+		);
+		return json_decode($this->curl->simple_get($this->API.'/Kota',$param))[0];
 	}
 	public function insert()
 	{
@@ -17,20 +26,19 @@ class Kota_model extends CI_Model {
 			'kota' => $this->input->post('kota'),
 			'harga' => $this->input->post('harga'),
 		);
-		$this->db->insert('kota',$set);
+		$this->curl->simple_post($this->API.'/Kota', $set, array(CURLOPT_BUFFERSIZE => 10));
 	}
 	public function update($id)
 	{
 		$set = array(
+			'id' => $id,
 			'kota' => $this->input->post('kota'),
 			'harga' => $this->input->post('harga'),
 		);
-		$this->db->where('id',$id);
-		$this->db->update('kota',$set);
+		$this->curl->simple_put($this->API.'/Kota', $set, array(CURLOPT_BUFFERSIZE => 10));
 	}
 	public function delete($id)
 	{
-		$this->db->where('id',$id);
-		$this->db->delete('kota');
+		$this->curl->simple_delete($this->API.'/Kota', array('id'=>$id), array(CURLOPT_BUFFERSIZE => 10));
 	}
 }
