@@ -5,7 +5,7 @@ class Pengguna_model extends CI_Model {
 
 	public function get()
 	{
-		$this->db->select("pengguna.*, (select nama from level where id=pengguna.id) as level_nama");
+		$this->db->select("pengguna.*, (select nama from level where id=pengguna.fk_level) as level_nama");
 		return $this->db->get('pengguna')->result();
 	}
 	public function get_id($id)

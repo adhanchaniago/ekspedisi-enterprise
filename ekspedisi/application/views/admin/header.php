@@ -181,11 +181,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <?php if ($this->session->userdata('logged_in')['level'] == 1): ?>
+                            <li>
                             <a href="<?php echo base_url("Admin/Pengguna") ?>">
                                 <i class="fas fa-user"></i>Pengguna</a>
                         </li>
-                        <li>
+                        <?php endif ?>
+                        <?php if ($this->session->userdata('logged_in')['level'] == 1 || $this->session->userdata('logged_in')['level'] == 2): ?>
+                            <li>
                             <a href="<?php echo base_url("Admin/Jenis") ?>">
                                 <i class="fas fa-box"></i>Jenis</a>
                         </li>
@@ -197,6 +200,7 @@
                             <a href="<?php echo base_url("Admin/Transaksi") ?>">
                                 <i class="fas fa-exchange-alt"></i>Transaksi</a>
                         </li>
+                        <?php endif ?>
                         <li>
                             <a href="<?php echo base_url("Admin/Pengiriman") ?>">
                                 <i class="fas fa-bus"></i>Pengiriman</a>
@@ -366,7 +370,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="<?php echo base_url("Login/logout") ?>">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

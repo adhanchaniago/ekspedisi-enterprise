@@ -6,8 +6,11 @@
                 <div class="col-md-12">
                     <div class="overview-wrap">
                         <h2 class="title-1">Pengiriman</h2>
-                        <a href="<?php echo base_url('Admin/Pengiriman/insert') ?>" class="au-btn au-btn-icon au-btn--blue">
-                            <i class="zmdi zmdi-plus"></i>Tambah Data</a>
+                        <?php if (!$this->session->userdata('logged_in')['level'] == 3): ?>
+                            <a href="<?php echo base_url('Admin/Pengiriman/insert') ?>" class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>Tambah Data
+                        </a>
+                        <?php endif ?>
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">

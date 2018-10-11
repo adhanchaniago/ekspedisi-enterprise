@@ -5,11 +5,15 @@ class Pengiriman_model extends CI_Model {
 
 	public function get()
 	{
+		if($this->session->userdata("logged_in")['level'] == 3){
+			$this->db->where('pengiriman.fk_sopir',$this->session->userdata("logged_in")['id']);
+		}
 		$this->db->select('pengiriman.*,(select nama from pengguna where id=pengiriman.fk_sopir) as sopir_nama,(select kota from kota where id=pengiriman.fk_tujuan) as kota_tujuan');
 		return $this->db->get('pengiriman')->result();
 	}
 	public function get_id($id)
 	{
+		
 		return $this->db->where('id',$id)->get('pengiriman')->row(0);
 	}
 	public function get_pengguna()

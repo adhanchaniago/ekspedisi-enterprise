@@ -16,6 +16,7 @@ class Pengiriman extends CI_Controller {
 		$this->load->view('admin/pengiriman/pengiriman',$data);
 		$this->load->view('admin/footer');
 	}
+	
 	public function insert()
 	{
 		$this->form_validation->set_rules('fk_sopir','fk_sopir',"required");
