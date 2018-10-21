@@ -17,7 +17,6 @@
                             <strong>Edit</strong> Data
                         </div>
                         <div class="card-body card-block">
-                            <?php echo validation_errors(); ?>
                             <form action="" method="post" class="form-horizontal" id="form-input">
                                 <div class="row form-group">
                                     <div class="col col-md-3">
@@ -26,6 +25,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-kode" name="kode" placeholder="Masukan kode" class="form-control" value="<?php echo $cabang->kode ?>">
                                         <small class="form-text text-muted"></small>
+                                         <?php echo form_error("kode") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -35,6 +35,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-nama" name="nama" placeholder="Masukan Nama" class="form-control" value="<?php echo $cabang->nama ?>">
                                         <small class="form-text text-muted">Hanya diisi huruf dan space</small>
+                                         <?php echo form_error("nama") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -44,6 +45,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-kota" name="kota" placeholder="Masukan Kota" class="form-control" value="<?php echo $cabang->kota ?>">
                                         <small class="form-text text-muted">Hanya diisi huruf dan space</small>
+                                         <?php echo form_error("kota") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -52,6 +54,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <textarea name="alamat" id="input-alamat" rows="4" placeholder="Masukan Alamat" class="form-control"><?php echo $cabang->alamat ?></textarea>
+                                         <?php echo form_error("alamat") ?>
                                     </div>
                                 </div>
                             </form>

@@ -24,7 +24,13 @@ class Cabang extends CI_Controller {
 	}
 	public function insert()
 	{
-		$this->form_validation->set_rules('nama','Nama','required');
+		$this->form_validation->set_rules('kode','Kode','required|numeric|exact_length[3]|is_unique[cabang.kode]');
+		$this->form_validation->set_rules('nama','Nama','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('kota','Kota','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('alamat','Alamat','required');
+
+		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+
 		
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/header');
@@ -37,7 +43,12 @@ class Cabang extends CI_Controller {
 	}
 	public function update($id)
 	{
-		$this->form_validation->set_rules('nama','Nama','required');
+		$this->form_validation->set_rules('kode','Kode','required|numeric|exact_length[3]');
+		$this->form_validation->set_rules('nama','Nama','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('kota','Kota','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('alamat','Alamat','required');
+
+		$this->form_validation->set_error_delimeter("<p class='text-danger'>","</p>");
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['cabang'] = $this->Cabang_model->get_id($id);
