@@ -180,51 +180,48 @@
                                                                         <a href="index4.html">Dashboard 4</a>
                                                                     </li>
                                                                 </ul>
-                                                            </li>
-                                                            <?php if ($this->session->userdata('logged_in')['level'] == 1): ?>
-                                                                <li>
+                                                                <?php if ($this->session->userdata('logged_in')['level'] == 1): ?>
+                                                                    <li>
                                                                     <a href="<?php echo base_url("Admin/Pengguna") ?>">
                                                                         <i class="fas fa-user"></i>Pengguna
                                                                     </a>
                                                                 </li>
-                                                            <?php endif ?>
-                                                            <?php if ($this->session->userdata('logged_in')['level'] == 1 || $this->session->userdata('logged_in')['level'] == 2): ?>
-                                                            <li>
-                                                                <a href="<?php echo base_url("Admin/Jenis") ?>">
-                                                                    <i class="fas fa-box"></i>Jenis
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="<?php echo base_url("Admin/Kota") ?>">
-                                                                    <i class="fas fa-university"></i>Kota
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="<?php echo base_url("Admin/Transaksi") ?>">
-                                                                    <i class="fas fa-exchange-alt"></i>Transaksi
-                                                                </a>
-                                                            </li>
-                                                        <?php endif ?>
-                                                        <li>
-                                                            <a href="<?php echo base_url("Admin/Pengiriman") ?>">
-                                                                <i class="fas fa-bus"></i>Pengiriman
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="<?php echo base_url("Admin/Penerimaan") ?>">
-                                                                <i class="fas fa-bus"></i>Penerimaan
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </aside>
-                                        <div class="page-container">
-                                            <header class="header-desktop">
-                                                <div class="section__content section__content--p30">
-                                                    <div class="container-fluid">
-                                                        <div class="header-wrap">
-                                                            <form class="form-header" action="" method="POST">
+                                                                <?php endif ?>
+                                                                <li>
+                                                                    <a href="<?php echo base_url("Admin/Jenis") ?>">
+                                                                        <i class="fas fa-box"></i>Jenis
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<?php echo base_url("Admin/Kota") ?>">
+                                                                        <i class="fas fa-university"></i>Kota
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<?php echo base_url("Admin/Transaksi") ?>">
+                                                                        <i class="fas fa-exchange-alt"></i>Transaksi
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<?php echo base_url("Admin/Pengiriman") ?>">
+                                                                        <i class="fas fa-bus"></i>Pengiriman
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="<?php echo base_url("Admin/Penerimaan") ?>">
+                                                                        <i class="fas fa-bus"></i>Penerimaan
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </aside>
+                                                <div class="page-container">
+                                                    <header class="header-desktop">
+                                                        <div class="section__content section__content--p30">
+                                                            <div class="container-fluid">
+                                                                <div class="header-wrap">
+                                                                    <form class="form-header" action="" method="POST">
                                                                <!--  <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                                                 <button class="au-btn--submit" type="submit">
                                                                     <i class="zmdi zmdi-search"></i>
@@ -365,15 +362,15 @@
                                                                                     <span class="email"><?php echo $this->session->userdata('logged_in')['username'] ?></span>
                                                                                 </div>
                                                                             </div>
-                                                                                        <div class="account-dropdown__footer">
-                                                                                            <a href="<?php echo base_url("Login/logout") ?>">
-                                                                                                <i class="zmdi zmdi-power"></i>Logout</a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+                                                                            <div class="account-dropdown__footer">
+                                                                                <a href="<?php echo base_url("Login/logout") ?>">
+                                                                                    <i class="zmdi zmdi-power"></i>Logout</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </header>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </header>

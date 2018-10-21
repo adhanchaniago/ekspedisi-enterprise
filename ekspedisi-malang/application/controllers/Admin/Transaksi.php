@@ -6,6 +6,9 @@ class Transaksi extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('logged_in')['id'] == null) {
+			redirect('Login','refresh');
+		}
 		$this->load->library('form_validation');
 		$this->load->model('Transaksi_model');
 	}
@@ -30,7 +33,7 @@ class Transaksi extends CI_Controller {
 			$this->load->view('admin/footer');
 		} else {
 			$this->Transaksi_model->insert();
-			//redirect('Admin/Transaksi','refresh');
+			redirect('Admin/Transaksi','refresh');
 		}
 	}
 }

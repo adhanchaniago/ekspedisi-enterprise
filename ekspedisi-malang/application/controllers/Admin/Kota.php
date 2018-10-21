@@ -8,6 +8,9 @@ class Kota extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('logged_in')['id'] == null) {
+			redirect('Login','refresh');
+		}
 		$this->API="http://localhost/ekspedisi-enterprise/rest_server/index.php";
 		$this->load->library('form_validation');
 		$this->load->model('Kota_model');

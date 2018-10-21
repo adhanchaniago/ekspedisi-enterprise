@@ -181,11 +181,14 @@
                                                                     </li>
                                                                 </ul>
                                                             </li>
-                                                            <li>
+                                                            <?php if ($this->session->userdata('logged_in')['level'] == 1): ?>
+                                                                <li>
                                                                 <a href="<?php echo base_url("Admin/Pengguna") ?>">
                                                                     <i class="fas fa-user"></i>Pengguna
                                                                 </a>
                                                             </li>
+                                                            <?php endif ?>
+                                                            <?php if ($this->session->userdata('logged_in')['level'] == 1 || $this->session->userdata('logged_in')['level'] == 2): ?>
                                                             <li>
                                                                 <a href="<?php echo base_url("Admin/Cabang") ?>">
                                                                     <i class="fas fa-university"></i>Cabang
@@ -201,16 +204,24 @@
                                                                     <i class="fas fa-bus"></i>Pengiriman
                                                                 </a>
                                                             </li>
-                                                        </ul>
-                                                    </nav>
-                                                </div>
-                                            </aside>
-                                            <div class="page-container">
-                                                <header class="header-desktop">
-                                                    <div class="section__content section__content--p30">
-                                                        <div class="container-fluid">
-                                                            <div class="header-wrap">
-                                                                <form class="form-header" action="" method="POST">
+                                                        <?php endif ?>
+                                                        <?php if ($this->session->userdata('logged_in')['level'] == 3): ?>
+                                                            <li>
+                                                            <a href="<?php echo base_url("Admin/Pengirim") ?>">
+                                                                <i class="fas fa-bus"></i>Pengirim
+                                                            </a>
+                                                        </li>
+                                                        <?php endif ?>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </aside>
+                                        <div class="page-container">
+                                            <header class="header-desktop">
+                                                <div class="section__content section__content--p30">
+                                                    <div class="container-fluid">
+                                                        <div class="header-wrap">
+                                                            <form class="form-header" action="" method="POST">
                                                                <!--  <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                                                 <button class="au-btn--submit" type="submit">
                                                                     <i class="zmdi zmdi-search"></i>
