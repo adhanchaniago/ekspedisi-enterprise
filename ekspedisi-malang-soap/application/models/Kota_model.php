@@ -6,7 +6,7 @@ class Kota_model extends CI_Model {
 	var $soap_client;
 	public function __construct()
 	{
-		$this->soap_client = new SoapClient($this->apidata->get_api_malang()."/MySoapServer?wsdl");
+		$this->soap_client = new SoapClient($this->apidata->get_api_pusat()."/MySoapServer?wsdl");
 		parent::__construct();
 	}
 	public function get()
