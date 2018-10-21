@@ -8,8 +8,8 @@ class Apidata {
 	function __construct(){
 		$this->kode_cabang = "092";
 	}
-	public function index()
+	public function get_api_pusat()
 	{
-
+		return "http://localhost/ekspedisi-enterprise/rest-server-pusat/index.php";
 	}
 }
