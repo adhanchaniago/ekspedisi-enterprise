@@ -21,8 +21,8 @@ class Jenis extends CI_Controller {
 	}
 	public function insert()
 	{
-		$this->form_validation->set_rules('nama','Nama','required');
-		$this->form_validation->set_rules('harga','Harga','required');
+		$this->form_validation->set_rules('nama','Nama','required|trim|alpha');
+		$this->form_validation->set_rules('harga','Harga','required|trim|numeric');
 		
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/header');
@@ -35,8 +35,8 @@ class Jenis extends CI_Controller {
 	}
 	public function update($id)
 	{
-		$this->form_validation->set_rules('nama','Nama','required');
-		$this->form_validation->set_rules('harga','Harga','required');
+		$this->form_validation->set_rules('nama','Nama','required|trim|alpha');
+		$this->form_validation->set_rules('harga','Harga','required|trim|numeric');
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['jenis'] = $this->Jenis_model->get_id($id);

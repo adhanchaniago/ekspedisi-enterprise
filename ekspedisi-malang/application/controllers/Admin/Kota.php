@@ -25,7 +25,7 @@ class Kota extends CI_Controller {
 	}
 	public function insert()
 	{
-		$this->form_validation->set_rules('kota','Kota','required');
+		$this->form_validation->set_rules('kota','Kota','required|trim|alpha');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/header');
@@ -38,7 +38,7 @@ class Kota extends CI_Controller {
 	}
 	public function update($id)
 	{
-		$this->form_validation->set_rules('kota','Kota','required');
+		$this->form_validation->set_rules('kota','Kota','required|trim|alpha');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['kota'] = $this->Kota_model->get_id($id);

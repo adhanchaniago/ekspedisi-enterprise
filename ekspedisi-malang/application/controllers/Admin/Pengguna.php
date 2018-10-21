@@ -24,12 +24,12 @@ class Pengguna extends CI_Controller {
 	}
 	public function insert()
 	{
-		$this->form_validation->set_rules('nama','Nama',"required");
-		$this->form_validation->set_rules('alamat','Alamat',"required");
-		$this->form_validation->set_rules('telp','Telp',"required");
-		$this->form_validation->set_rules('email','Email',"required");
-		$this->form_validation->set_rules('username','Username',"required");
-		$this->form_validation->set_rules('password','Password',"required");
+		$this->form_validation->set_rules('nama','Nama',"required|trim|alpha");
+		$this->form_validation->set_rules('alamat','Alamat',"required|trim");
+		$this->form_validation->set_rules('telp','Telp',"required|trim|numeric");
+		$this->form_validation->set_rules('email','Email',"required|trim|valid_email");
+		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]");
+		$this->form_validation->set_rules('password','Password',"required|trim|min_length[6]");
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['level'] = $this->Pengguna_model->get_level();
@@ -43,12 +43,12 @@ class Pengguna extends CI_Controller {
 	}
 	public function update($id)
 	{
-		$this->form_validation->set_rules('nama','Nama',"required");
-		$this->form_validation->set_rules('alamat','Alamat',"required");
-		$this->form_validation->set_rules('telp','Telp',"required");
-		$this->form_validation->set_rules('email','Email',"required");
-		$this->form_validation->set_rules('username','Username',"required");
-		$this->form_validation->set_rules('password','Password',"required");
+		$this->form_validation->set_rules('nama','Nama',"required|trim|alpha");
+		$this->form_validation->set_rules('alamat','Alamat',"required|trim");
+		$this->form_validation->set_rules('telp','Telp',"required|trim|numeric");
+		$this->form_validation->set_rules('email','Email',"required|trim|valid_email");
+		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]");
+		$this->form_validation->set_rules('password','Password',"required|trim|min_length[6]");
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['level'] = $this->Pengguna_model->get_level();
