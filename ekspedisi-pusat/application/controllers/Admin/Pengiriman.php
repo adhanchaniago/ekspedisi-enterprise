@@ -23,6 +23,7 @@ class Pengiriman extends CI_Controller {
 		$this->form_validation->set_rules('fk_cabang_dari','fk_cabang_dari',"required");
 		
 		if ($this->form_validation->run() == FALSE) {
+			$data['pengirim'] = $this->Pengiriman_model->get_pengirim();
 			$data['cabang'] = $this->Pengiriman_model->get_cabang();
 			$this->load->view('admin/header');
 			$this->load->view('admin/pengiriman/insert',$data);

@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <h2 class="title-1">Pengiriman</h2>
-                        <a href="<?php echo base_url('Admin/Pengiriman') ?>" class="au-btn au-btn-icon btn-secondary">
+                        <h2 class="title-1">Jenis</h2>
+                        <a href="<?php echo base_url('Admin/Jenis') ?>" class="au-btn au-btn-icon btn-secondary">
                             Kembali
                         </a>
                     </div>
@@ -21,30 +21,19 @@
                             <form action="" method="post" class="form-horizontal" id="form-input">
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="input-fk_sopir" class=" form-control-label">Sopir</label>
+                                        <label for="input-nama" class=" form-control-label">Nama</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <select name="fk_sopir" id="input-fk_sopir" class="form-control">
-                                            <option disabled="" selected="" value="">Pilih Sopir</option>
-                                            <?php foreach ($sopir as $value): ?>
-                                                <option value="<?php echo $value->id ?>"><?php echo $value->nama ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-                                        <script>$("#input-fk_sopir").val("<?php echo set_value("fk_sopir") ?>");</script>
+                                        <input type="text" id="input-nama" name="nama" placeholder="Masukan Nama" class="form-control" value="<?php echo set_value("nama") ?>">
+                                        <small class="form-text text-muted">Hanya diisi huruf dan space</small>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="input-fk_tujuan" class=" form-control-label">Kota Tujuan</label>
+                                        <label for="input-harga" class=" form-control-label">harga</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <select name="fk_tujuan" id="input-fk_tujuan" class="form-control">
-                                            <option disabled="" selected="" value="">Pilih kota</option>
-                                            <?php foreach ($kota as $value): ?>
-                                                <option value="<?php echo $value->id ?>"><?php echo $value->kota ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-                                        <script>$("#input-fk_tujuan").val("<?php echo set_value("fk_tujuan") ?>");</script>
+                                        <input type="number" id="input-harga" name="harga" placeholder="Masukan Harga" class="form-control" value="<?php echo set_value("harga") ?>">
                                     </div>
                                 </div>
                             </form>

@@ -19,6 +19,7 @@
                                     <tr>
                                         <th>no</th>
                                         <th>kode</th>
+                                        <th>nama pengirim</th>
                                         <th>cabang ke</th>
                                         <th>cabang dari</th>
                                         <th>status</th>
@@ -31,8 +32,9 @@
                                         <tr>
                                             <td><?php echo $value->id ?></td>
                                             <td><?php echo $value->kode ?></td>
-                                            <td><?php echo $value->fk_cabang_ke ?></td>
-                                            <td><?php echo $value->fk_cabang_dari ?></td>
+                                            <td><?php echo $value->nama_pengirim ?></td>
+                                            <td><?php echo $value->kota_ke ?></td>
+                                            <td><?php echo $value->kota_dari ?></td>
                                             <td><?php echo $value->status ?></td>
                                             <td><?php echo $value->deskripsi_status ?></td>
                                             <td>

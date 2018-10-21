@@ -21,6 +21,20 @@
                             <form action="" method="post" class="form-horizontal" id="form-input">
                                 <div class="row form-group">
                                     <div class="col col-md-3">
+                                        <label for="input-fk_pengirim" class=" form-control-label">Nama Pengirim</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <select name="fk_pengirim" id="input-fk_pengirim" class="form-control">
+                                            <option disabled="" selected="" value="">Pilih Pengirim</option>
+                                            <?php foreach ($pengirim as $value): ?>
+                                                <option value="<?php echo $value->id ?>"><?php echo $value->nama ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                        <script>$("#input-fk_pengirim").val("<?php echo set_value("fk_pengirim") ?>");</script>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
                                         <label for="input-fk_cabang_ke" class=" form-control-label">Cabang Ke</label>
                                     </div>
                                     <div class="col-12 col-md-9">

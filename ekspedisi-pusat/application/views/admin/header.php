@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Ekspedisi [Pusat]</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url('assets/') ?>css/font-face.css" rel="stylesheet" media="all">
@@ -189,6 +189,11 @@
                                                             <li>
                                                                 <a href="<?php echo base_url("Admin/Cabang") ?>">
                                                                     <i class="fas fa-university"></i>Cabang
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo base_url("Admin/Paket") ?>">
+                                                                    <i class="fas fa-university"></i>Paket
                                                                 </a>
                                                             </li>
                                                             <li>

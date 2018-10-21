@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Ekspedisi [<?php echo $this->apidata->kota_cabang ?>]</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url('assets/') ?>css/font-face.css" rel="stylesheet" media="all">
@@ -208,6 +208,11 @@
                                                         <li>
                                                             <a href="<?php echo base_url("Admin/Pengiriman") ?>">
                                                                 <i class="fas fa-bus"></i>Pengiriman
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="<?php echo base_url("Admin/Penerimaan") ?>">
+                                                                <i class="fas fa-bus"></i>Penerimaan
                                                             </a>
                                                         </li>
                                                     </ul>
