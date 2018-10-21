@@ -28,7 +28,7 @@ class Pengguna extends CI_Controller {
 		$this->form_validation->set_rules('alamat','Alamat',"required|trim");
 		$this->form_validation->set_rules('telp','Telp',"required|trim|numeric");
 		$this->form_validation->set_rules('email','Email',"required|trim|valid_email");
-		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]");
+		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]|alpha_numeric");
 		$this->form_validation->set_rules('password','Password',"required|trim|min_length[6]");
 		
 		if ($this->form_validation->run() == FALSE) {
@@ -47,7 +47,7 @@ class Pengguna extends CI_Controller {
 		$this->form_validation->set_rules('alamat','Alamat',"required|trim");
 		$this->form_validation->set_rules('telp','Telp',"required|trim|numeric");
 		$this->form_validation->set_rules('email','Email',"required|trim|valid_email");
-		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]");
+		$this->form_validation->set_rules('username','Username',"required|trim|min_length[6]|alpha_numeric");
 		$this->form_validation->set_rules('password','Password',"required|trim|min_length[6]");
 		
 		if ($this->form_validation->run() == FALSE) {

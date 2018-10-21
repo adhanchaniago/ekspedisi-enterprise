@@ -25,6 +25,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-tanggal" name="tanggal" class="form-control" value="<?php echo date("Y-m-d h:i") ?>" readonly>
+                                        <?php echo form_error('tanggal') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -39,6 +40,7 @@
                                             <?php endforeach ?>
                                         </select>
                                         <script>$("#input-fk_kota").val("<?php echo set_value("fk_kota") ?>");</script>
+                                        <?php echo form_error('fk_kota') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -48,6 +50,7 @@
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="input-penerima" name="penerima" placeholder="Masukan penerima" class="form-control" value="<?php echo set_value("penerima") ?>">
                                             <small class="form-text text-muted">Hanya diisi huruf dan space</small>
+                                            <?php echo form_error('penerima') ?>
                                         </div>
                                     </div>
                                 <div class="row form-group">
@@ -56,6 +59,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <textarea name="alamat" id="input-alamat" rows="4" placeholder="Masukan Alamat" class="form-control"><?php echo set_value("alamat") ?></textarea>
+                                        <?php echo form_error('alamat') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -70,6 +74,7 @@
                                             <?php endforeach ?>
                                         </select>
                                         <script>$("#input-fk_jenis").val("<?php echo set_value("fk_jenis") ?>");</script>
+                                        <?php echo form_error('fk_jenis') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -78,6 +83,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="number" id="input-berat" name="berat" placeholder="Masukan Berat" class="form-control" value="1" min="0">
+                                        <?php echo form_error('berat') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -86,6 +92,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <textarea name="deskripsi" id="input-deskripsi" rows="4" placeholder="Masukan Deskripsi" class="form-control"><?php echo set_value("deskripsi") ?></textarea>
+                                        <?php echo form_error('deskripsi') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -94,6 +101,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" disabled class="form-control" value="<?php echo $this->session->userdata('logged_in')['nama'] ?>">
+                                        <?php echo form_error('fk_petugas') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">

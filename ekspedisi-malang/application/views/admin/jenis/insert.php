@@ -26,6 +26,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-nama" name="nama" placeholder="Masukan Nama" class="form-control" value="<?php echo set_value("nama") ?>">
                                         <small class="form-text text-muted">Hanya diisi huruf dan space</small>
+                                        <?php echo form_error('nama') ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -34,6 +35,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="number" id="input-harga" name="harga" placeholder="Masukan Harga" class="form-control" value="<?php echo set_value("harga") ?>">
+                                        <?php echo form_error('harga') ?>
                                     </div>
                                 </div>
                             </form>
