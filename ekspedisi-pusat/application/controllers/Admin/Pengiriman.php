@@ -25,6 +25,7 @@ class Pengiriman extends CI_Controller {
 	
 	public function insert()
 	{
+		$this->form_validation->set_rules('fk_pengirim','fk_pengirim',"required");
 		$this->form_validation->set_rules('fk_cabang_ke','fk_cabang_ke',"required");
 		$this->form_validation->set_rules('fk_cabang_dari','fk_cabang_dari',"required");
 		

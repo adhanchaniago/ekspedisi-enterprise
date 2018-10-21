@@ -1,0 +1,1 @@
+$('#table-datatable').DataTable();
