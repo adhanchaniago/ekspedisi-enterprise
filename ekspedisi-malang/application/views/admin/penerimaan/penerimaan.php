@@ -28,7 +28,26 @@
                                             <td><?php echo $value->id ?></td>
                                             <td><?php echo $value->kode ?></td>
                                             <td><?php echo $value->kota_tujuan ?></td>
-                                            <td><?php echo $value->status ?></td>
+                                            <td>
+                                                <?php 
+                                                switch ($value->status) {
+                                                   case 1:
+                                                   echo "<span class='badge badge-warning'>Mengambil Paket</span>";
+                                                   break;
+                                                   case 2:
+                                                   echo "<span class='badge badge-primary'>Berangkat</span>";
+                                                   break;
+                                                   case 3:
+                                                   echo "<span class='badge badge-info'>Menaruh Paket</span>";
+                                                   break;
+                                                   case 4:
+                                                   echo "<span class='badge badge-success'>Selesai</span>";
+                                                   break;
+                                                   default:
+                                                         // code...
+                                                   break;
+                                               } ?>
+                                           </td>
                                             <td><?php echo $value->deskripsi_status ?></td>
                                             <td>
                                                 <div class="table-data-feature">

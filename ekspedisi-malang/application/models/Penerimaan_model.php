@@ -8,6 +8,7 @@ class Penerimaan_model extends CI_Model {
 		$param = array(
 			"id_cabang"=>$this->apidata->id_cabang,
 			'jenis' => "penerimaan",
+			'status' => 3,
 		);
 		return json_decode($this->curl->simple_get($this->apidata->get_api_pusat().'/Pengiriman',$param));
 	}
