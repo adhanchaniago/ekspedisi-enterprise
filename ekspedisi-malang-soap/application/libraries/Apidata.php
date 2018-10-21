@@ -13,6 +13,6 @@ class Apidata {
 	}
 	public function get_api_malang()
 	{
-		return "http://localhost/ekspedisi-enterprise/soap-server-malang/index.php";
+		return "http://localhost:8080/ekspedisi-enterprise/soap-server-malang/index.php";
 	}
 }
