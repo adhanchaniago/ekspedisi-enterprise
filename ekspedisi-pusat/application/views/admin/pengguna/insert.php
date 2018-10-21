@@ -17,7 +17,6 @@
                             <strong>Tambah</strong> Data
                         </div>
                         <div class="card-body card-block">
-                            <?php echo validation_errors(); ?>
                             <form action="" method="post" class="form-horizontal" id="form-input">
                                 <div class="row form-group">
                                     <div class="col col-md-3">
@@ -26,6 +25,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-nama" name="nama" placeholder="Masukan Nama" class="form-control" value="<?php echo set_value("nama") ?>">
                                         <small class="form-text text-muted">Hanya diisi huruf dan space</small>
+                                         <?php echo form_error("nama") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -34,6 +34,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <textarea name="alamat" id="input-alamat" rows="4" placeholder="Masukan Alamat" class="form-control"><?php echo set_value("alamat") ?></textarea>
+                                         <?php echo form_error("alamat") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -42,6 +43,7 @@
                                     </div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-telp" name="telp" placeholder="Masukan Telepon" class="form-control" value="<?php echo set_value("telp") ?>">
+                                         <?php echo form_error("telepon") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -51,6 +53,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="email" id="input-email" name="email" placeholder="Masukan Email" class="form-control" value="<?php echo set_value("email") ?>">
                                         <small class="help-block form-text">Masukan email yang valid</small>
+                                         <?php echo form_error("email") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -65,6 +68,7 @@
                                             <?php endforeach ?>
                                         </select>
                                         <script>$("#input-fk_level").val("<?php echo set_value("fk_level") ?>");</script>
+                                         <?php echo form_error("fk_level") ?>
                                     </div>
                                 </div>
 
@@ -75,6 +79,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="input-username" name="username" placeholder="Masukan Username" class="form-control" value="<?php echo set_value("username") ?>">
                                         <small class="form-text text-muted">Hanya diisi huruf dan angka</small>
+                                         <?php echo form_error("username") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -84,6 +89,7 @@
                                     <div class="col-12 col-md-9">
                                         <input type="password" id="input-password" name="password" placeholder="Masukan Password" class="form-control">
                                         <small class="help-block form-text">Minimal 6 karakter</small>
+                                         <?php echo form_error("password") ?>
                                     </div>
                                 </div>
                                                                

@@ -24,12 +24,23 @@ class Pengguna extends CI_Controller {
 	}
 	public function insert()
 	{
+
+		$this->form_validation->set_rules('nama','Nama','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('alamat','Alamat','required');
+		$this->form_validation->set_rules('telp','Telp','required|numeric');
+		$this->form_validation->set_rules('email','Email','required|valid_email');
+		$this->form_validation->set_rules('username','Username','required|min_length[6]');
+		$this->form_validation->set_rules('password','Password','required|min_length[6]');
+
+
 		$this->form_validation->set_rules('nama','Nama',"required");
 		$this->form_validation->set_rules('alamat','Alamat',"required");
 		$this->form_validation->set_rules('telp','Telp',"required");
 		$this->form_validation->set_rules('email','Email',"required");
 		$this->form_validation->set_rules('username','Username',"required");
 		$this->form_validation->set_rules('password','Password',"required");
+
+		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['level'] = $this->Pengguna_model->get_level();
@@ -43,12 +54,15 @@ class Pengguna extends CI_Controller {
 	}
 	public function update($id)
 	{
-		$this->form_validation->set_rules('nama','Nama',"required");
-		$this->form_validation->set_rules('alamat','Alamat',"required");
-		$this->form_validation->set_rules('telp','Telp',"required");
-		$this->form_validation->set_rules('email','Email',"required");
-		$this->form_validation->set_rules('username','Username',"required");
-		$this->form_validation->set_rules('password','Password',"required");
+		$this->form_validation->set_rules('nama','Nama','required|regex_match[/^[a-zA-Z][a-zA-Z\\s]+$/]');
+		$this->form_validation->set_rules('alamat','Alamat','required');
+		$this->form_validation->set_rules('telp','Telp','required|numeric');
+		$this->form_validation->set_rules('email','Email','required|valid_email');
+		$this->form_validation->set_rules('level','Level','required');
+		$this->form_validation->set_rules('username','Username','required|min_length[6]');
+		$this->form_validation->set_rules('password','Password','required|min_length[6]');
+
+		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
 		
 		if ($this->form_validation->run() == FALSE) {
 			$data['level'] = $this->Pengguna_model->get_level();
