@@ -13,11 +13,11 @@ class Apidata {
 	}
 	public function get_api_pusat()
 	{
-		return "http://localhost:8080/ekspedisi-enterprise/rest-server-pusat/index.php";
+		return "http://localhost/ekspedisi-enterprise/rest/rest-server-pusat/index.php";
 	}
 
 	public function get_api_malang()
 	{
-		return "http://localhost:8080/ekspedisi-enterprise/rest_server/index.php";
+		return "http://localhost/ekspedisi-enterprise/rest/rest-server-malang/index.php";
 	}
 }
