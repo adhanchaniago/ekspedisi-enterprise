@@ -17,9 +17,16 @@ class Login extends CI_Controller {
 	public function cekDB($username)
 	{
 		$password = md5($this->input->post('password'));
-		$cekDB = $this->db->where(array('username'=>$username,'password'=>$password))->get('pengguna');
-		if ($cekDB->num_rows() == 1) {
-			$data = $cekDB->result()[0];
+
+		$data = array(
+			'username' => $username,
+			'password' => $password
+		);
+		
+		$cekDB = json_decode($this->curl->simple_post($this->apidata->get_api_pusat().'/Login', $data, array(CURLOPT_BUFFERSIZE => 10)));
+		
+		if ($cekDB->num_rows == 1) {
+			$data = $cekDB->data;
 			$userdata = array(
 				'id' => $data->id,
 				'nama' => $data->nama,

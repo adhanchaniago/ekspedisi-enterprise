@@ -5,7 +5,7 @@ class Paket_model extends CI_Model {
 
 	public function get()
 	{
-		return $this->db->get('paket')->result();
+		return json_decode($this->curl->simple_get($this->apidata->get_api_pusat().'/Paket'));
 	}
 }
 ?>
