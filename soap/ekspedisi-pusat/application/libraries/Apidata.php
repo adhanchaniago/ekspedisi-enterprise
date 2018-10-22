@@ -10,6 +10,6 @@ class Apidata {
 	}
 	public function get_api_pusat()
 	{
-		return "http://localhost/ekspedisi-enterprise/soap-server-pusat/index.php";
+		return "http://localhost/ekspedisi-enterprise/soap/soap-server-pusat/index.php";
 	}
 }

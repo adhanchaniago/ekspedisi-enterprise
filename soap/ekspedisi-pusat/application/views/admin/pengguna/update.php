@@ -68,7 +68,7 @@
                                             <?php endforeach ?>
                                         </select>
                                         <script>$("#input-fk_level").val("<?php echo $pengguna->fk_level ?>");</script>
-                                         <?php echo form_error("level") ?>
+                                         <?php echo form_error("fk_level") ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
