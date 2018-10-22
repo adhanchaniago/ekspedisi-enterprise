@@ -3,18 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna_model extends CI_Model {
 
+	var $soap_client;
+	var $soap_client_pengguna;
+	public function __construct()
+	{
+		parent::__construct();
+		$this->soap_client = new SoapClient($this->apidata->get_api_pusat()."/MySoapServer?wsdl");
+		$this->soap_client_pengguna = new SoapClient($this->apidata->get_api_pusat()."/Pengguna?wsdl");
+	}
 	public function get()
 	{
-		$this->db->select("pengguna.*, (select nama from level where id=pengguna.fk_level) as level_nama");
-		return $this->db->get('pengguna')->result();
+		return json_decode($this->soap_client_pengguna->getData(json_encode(array("table"=>"pengguna"))));
 	}
 	public function get_id($id)
 	{
-		return $this->db->where('id',$id)->get('pengguna')->row(0);
+		return json_decode($this->soap_client->getDataId(json_encode(array("table"=>"pengguna",'id'=>$id))));;
 	}
 	public function get_level()
 	{
-		return $this->db->get('level')->result();
+		return json_decode($this->soap_client->getData(json_encode(array("table"=>"level"))));
 	}
 	public function insert()
 	{
@@ -27,7 +34,7 @@ class Pengguna_model extends CI_Model {
 			'password' => md5($this->input->post('password')),
 			'fk_level' => $this->input->post('fk_level'),
 		);
-		$this->db->insert('pengguna',$set);
+		$data = $this->soap_client->insertData(json_encode(array("table"=>"pengguna","data"=>$set)));
 	}
 	public function update($id)
 	{
@@ -40,12 +47,10 @@ class Pengguna_model extends CI_Model {
 			'password' => md5($this->input->post('password')),
 			'fk_level' => $this->input->post('fk_level'),
 		);
-		$this->db->where('id',$id);
-		$this->db->update('pengguna',$set);
+		$this->soap_client->updateData(json_encode(array("table"=>"pengguna","primary_key"=>"id","id"=>$id,"data"=>$set)));
 	}
 	public function delete($id)
 	{
-		$this->db->where('id',$id);
-		$this->db->delete('pengguna');
+		$this->soap_client->deleteData(json_encode(array("table"=>"pengguna","primary_key"=>"id","id"=>$id)));
 	}
 }
