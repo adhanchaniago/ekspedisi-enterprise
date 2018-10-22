@@ -22,6 +22,8 @@ class Pengiriman extends REST_Controller {
 		$pengiriman = $this->db->get("pengiriman")->result();
 		$this->response($pengiriman, 200);
 	}
+
+	
 	
 }
 ?>

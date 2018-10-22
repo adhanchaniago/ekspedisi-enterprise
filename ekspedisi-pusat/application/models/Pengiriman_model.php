@@ -5,11 +5,7 @@ class Pengiriman_model extends CI_Model {
 
 	public function get()
 	{
-		$this->db->select('pengiriman.*,
-			(select nama from pengguna where id=fk_pengirim) as nama_pengirim,
-			(select kota from cabang where id=fk_cabang_ke) as kota_ke,
-			(select kota from cabang where id=fk_cabang_dari) as kota_dari,');
-		return $this->db->get('pengiriman')->result();
+		return json_decode($this->curl->simple_get($this->apidata->get_api_pusat().'/Pengiriman_pusat'));
 	}
 	public function get_id($id)
 	{
@@ -37,9 +33,8 @@ class Pengiriman_model extends CI_Model {
 			'status' => 1,
 			'deskripsi_status' => "Proses pengambilan",
 		);
-		$insert = $this->db->insert('pengiriman',$set);
+		$this->curl->simple_post($this->apidata->get_api_pusat().'/Pengiriman_pusat', $set, array(CURLOPT_BUFFERSIZE => 10));
 
-		
 	}
 	public function get_paket($id)
 	{
