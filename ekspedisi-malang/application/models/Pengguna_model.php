@@ -5,16 +5,18 @@ class Pengguna_model extends CI_Model {
 
 	public function get()
 	{
-		$this->db->select("pengguna.*, (select nama from level where id=pengguna.fk_level) as level_nama");
-		return $this->db->get('pengguna')->result();
+		return json_decode($this->curl->simple_get($this->apidata->get_api_malang().'/Pengguna'));
 	}
 	public function get_id($id)
 	{
-		return $this->db->where('id',$id)->get('pengguna')->row(0);
+		$param = array(
+			'id' => $id,
+		);
+		return json_decode($this->curl->simple_get($this->apidata->get_api_malang().'/Pengguna',$param))[0];
 	}
 	public function get_level()
 	{
-		return $this->db->get('level')->result();
+		return json_decode($this->curl->simple_get($this->apidata->get_api_malang().'/Level'));
 	}
 	public function insert()
 	{
@@ -27,7 +29,7 @@ class Pengguna_model extends CI_Model {
 			'password' => md5($this->input->post('password')),
 			'fk_level' => $this->input->post('fk_level'),
 		);
-		$this->db->insert('pengguna',$set);
+		$this->curl->simple_post($this->apidata->get_api_malang().'/Pengguna', $set, array(CURLOPT_BUFFERSIZE => 10));
 	}
 	public function update($id)
 	{
@@ -40,12 +42,10 @@ class Pengguna_model extends CI_Model {
 			'password' => md5($this->input->post('password')),
 			'fk_level' => $this->input->post('fk_level'),
 		);
-		$this->db->where('id',$id);
-		$this->db->update('pengguna',$set);
+		$this->curl->simple_put($this->apidata->get_api_malang().'/Pengguna', $set, array(CURLOPT_BUFFERSIZE => 10));
 	}
 	public function delete($id)
 	{
-		$this->db->where('id',$id);
-		$this->db->delete('pengguna');
+		$this->curl->simple_delete($this->apidata->get_api_malang().'/Pengguna', array('id'=>$id), array(CURLOPT_BUFFERSIZE => 10));
 	}
 }
