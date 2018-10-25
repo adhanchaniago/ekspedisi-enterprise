@@ -13,6 +13,10 @@ class Apidata {
 	}
 	public function get_api_malang()
 	{
-		return "http://localhost:8080/ekspedisi-enterprise/soap-server-surabaya/index.php";
+		return "http://localhost:8080/ekspedisi-enterprise/soap/soap-server-surabaya/index.php";
+	}
+	public function get_api_pusat()
+	{
+		return "http://192.168.62.145/ekspedisi-enterprise/soap/soap-server-pusat/index.php";
 	}
 }

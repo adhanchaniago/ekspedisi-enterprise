@@ -39,7 +39,7 @@ class MySoapServer extends CI_Controller {
          */
         function getData($array) {
             $pars = json_decode($array);
-            $conn=mysqli_connect('localhost','root','','ekspedisi_malang');
+            $conn=mysqli_connect('localhost','root','','ekspedisi_surabaya');
             $query = "select * from ".$pars->table;
             $result = mysqli_query($conn,$query);
             $data = array();
@@ -52,7 +52,7 @@ class MySoapServer extends CI_Controller {
 
         function getDataId($array) {
             $pars = json_decode($array);
-            $conn=mysqli_connect('localhost','root','','ekspedisi_malang');
+            $conn=mysqli_connect('localhost','root','','ekspedisi_surabaya');
             $query = "select * from ".$pars->table." where id='".$pars->id."'";
             $result = mysqli_query($conn,$query);
             $row = mysqli_fetch_assoc($result);
@@ -64,7 +64,7 @@ class MySoapServer extends CI_Controller {
         function insertData($array) {
             $pars = json_decode($array);
             $data = $pars->data;
-            $conn=mysqli_connect('localhost','root','','ekspedisi_malang');
+            $conn=mysqli_connect('localhost','root','','ekspedisi_surabaya');
             $column = "";
             foreach ($data as $key => $value) {
                 $column .= $key.",";
@@ -86,7 +86,7 @@ class MySoapServer extends CI_Controller {
             $primary_key = $pars->primary_key;
             $id  = $pars->id;
             $data = $pars->data;
-            $conn=mysqli_connect('localhost','root','','ekspedisi_malang');
+            $conn=mysqli_connect('localhost','root','','ekspedisi_surabaya');
 
             $set = "";
             foreach ($data as $key => $value) {
@@ -101,7 +101,7 @@ class MySoapServer extends CI_Controller {
             $pars = json_decode($array);
             $primary_key = $pars->primary_key;
             $id = $pars->id;
-            $conn=mysqli_connect('localhost','root','','ekspedisi_malang');
+            $conn=mysqli_connect('localhost','root','','ekspedisi_surabaya');
             $query = "delete from ".$pars->table." where ".$primary_key."='".$id."'";
             $result = mysqli_query($conn,$query);
             return json_encode(array());
