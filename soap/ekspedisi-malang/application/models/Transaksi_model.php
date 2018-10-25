@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Transaksi_model extends CI_Model {
 
+var $soap_client;
+	public function __construct()
+	{
+		parent::__construct();
+		$this->soap_client = new SoapClient($this->apidata->get_api_pusat()."/Transaksi?wsdl");
+	}
+
 	public function get()
 	{
 		$this->db->select("transaksi.*,(select nama from pengguna where id=transaksi.fk_petugas) as petugas_nama,(select nama from pengguna where id=transaksi.fk_pelanggan) as pelanggan_nama");
@@ -67,7 +74,6 @@ class Transaksi_model extends CI_Model {
 	}
 	public function insert_to_pusat($id)
 	{
-		$this->load->library("curl");
 		$this->db->select("transaksi.*,
 			(select nama from pengguna where id=fk_pelanggan) as nama_pengirim,
 			(select alamat from pengguna where id=fk_pelanggan) as alamat_pengirim,
@@ -91,7 +97,8 @@ class Transaksi_model extends CI_Model {
 			'deskripsi_status' => "",
 			'kota_posisi' => $this->apidata->kota_cabang,
 		);
-		$this->curl->simple_post($this->apidata->get_api_pusat().'/Paket', $data, array(CURLOPT_BUFFERSIZE => 10));
+
+		$data = $this->soap_client->insertData(json_encode(array("table"=>"paket","data"=>$data)));
 	}
 	public function generate_resi()
 	{
