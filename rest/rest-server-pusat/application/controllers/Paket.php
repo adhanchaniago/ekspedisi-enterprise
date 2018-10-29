@@ -64,5 +64,13 @@ class Paket extends REST_Controller {
 			$this->response(array('status' => 'fail', 502));
 		}
 	}
+	function index_delete() {
+		$kota = $this->delete('kota');
+		if ($kota != "") {
+			$this->db->where('kota_posisi', $kota);
+		}
+		$paket = $this->db->get('paket')->result();
+		$this->response($paket, 200);
+	}
 }
 ?>
